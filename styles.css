@@ -175,3 +175,36 @@ footer a:hover{color:#5eead4}
   .hero-stats{flex-direction:column}
   .split img.main{height:300px}
 }
+/* ---- Real product photos: never crop, full image visible ---- */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2rem}
+.prod-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.prod-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.prod-card .pimg{background:#fff;display:grid;place-items:center;padding:1rem;min-height:300px}
+.prod-card .pimg img{width:100%;height:300px;object-fit:contain;object-position:center;background:#fff}
+.prod-card .pimg.tall img{height:380px}
+.prod-card .card-body{padding:1.3rem 1.4rem;border-top:1px solid var(--line);flex:1}
+.prod-card .card-body h3{font-size:1.08rem;margin-bottom:.35rem}
+.prod-card .card-body p{color:var(--sub);font-size:.92rem}
+.prod-card .ptag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green2);background:#e6f9f0;border:1px solid #c9f0dd;padding:.3rem .7rem;border-radius:100px;margin-bottom:.6rem}
+.prod-note{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:14px;padding:1rem 1.2rem;margin-top:1.5rem;font-size:.93rem}
+.gal figure.real{height:320px;background:#fff}
+.gal figure.real img{object-fit:contain;background:#fff;padding:.5rem}
+@media(max-width:1100px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.prod-grid{grid-template-columns:1fr}.prod-card .pimg img{height:260px}}
+/* ---- Products page category pills ---- */
+.pcats{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem}
+.pcats a{font-size:.82rem;font-weight:800;padding:.6rem 1.1rem;border-radius:100px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;transition:.25s}
+.pcats a:hover{background:#f59e0b;border-color:#f59e0b;color:#231600}
+/* ---- Order Now button under products ---- */
+.prod-card .order-btn{margin-top:.8rem;width:100%;padding:.8rem 1rem}
+.prod-card .card-link + .order-btn{margin-top:.6rem}
+/* ---- Payment QR section ---- */
+.pay-grid{display:grid;grid-template-columns:340px 1fr;gap:2.5rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:2.2rem;box-shadow:var(--shadow-sm);margin-top:2rem}
+.pay-qr{background:#fff;border:2px solid var(--line);border-radius:18px;padding:.8rem;text-align:center}
+.pay-qr img{width:100%;height:auto;object-fit:contain;border-radius:10px}
+.pay-steps{list-style:none;margin:1.1rem 0;display:grid;gap:.7rem}
+.pay-steps li{display:flex;gap:.7rem;align-items:flex-start}
+.pay-steps li b.step-n{flex:0 0 30px;height:30px;display:grid;place-items:center;background:linear-gradient(135deg,var(--green),var(--amber));color:#fff;border-radius:50%;font-size:.9rem}
+.upi-pill{display:inline-flex;align-items:center;gap:.6rem;background:var(--muted);border:1.5px dashed var(--green2);border-radius:12px;padding:.7rem 1rem;font-weight:800;margin-top:.6rem;flex-wrap:wrap}
+.upi-pill button{background:#07142b;color:#fff;border:0;border-radius:8px;padding:.45rem .9rem;font-weight:800;font-size:.8rem;cursor:pointer}
+@media(max-width:760px){.pay-grid{grid-template-columns:1fr;padding:1.5rem}}
