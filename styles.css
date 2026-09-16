@@ -195,9 +195,22 @@ footer a:hover{color:#5eead4}
 .pcats{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem}
 .pcats a{font-size:.82rem;font-weight:800;padding:.6rem 1.1rem;border-radius:100px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;transition:.25s}
 .pcats a:hover{background:#f59e0b;border-color:#f59e0b;color:#231600}
+.pcats a:active{transform:scale(.96)}
+/* ---- Brand logo: header, mobile menu, footer ---- */
+.brand-logo{width:50px;height:50px;object-fit:contain;border-radius:14px;background:#fff;box-shadow:0 8px 24px rgba(14,163,113,.3);flex:0 0 auto}
+.mm-brand{display:flex;align-items:center;gap:.6rem}
+.mm-logo{width:38px;height:38px;object-fit:contain;border-radius:10px;background:#fff;flex:0 0 auto}
+.foot-logo{width:56px;height:56px;object-fit:contain;border-radius:14px;background:#fff;display:block;margin-bottom:.7rem}
+@media(max-width:620px){
+  .brand-logo{width:44px;height:44px;border-radius:12px}
+  .brand b{font-size:.95rem}
+  .brand small{font-size:.64rem;letter-spacing:.16em}
+}
 /* ---- Order Now button under products ---- */
 .prod-card .order-btn{margin-top:.8rem;width:100%;padding:.8rem 1rem}
 .prod-card .card-link + .order-btn{margin-top:.6rem}
+/* ---- Anchor sections: never hide under sticky header ---- */
+section[id]{scroll-margin-top:86px}
 /* ---- Payment QR section ---- */
 .pay-grid{display:grid;grid-template-columns:340px 1fr;gap:2.5rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:2.2rem;box-shadow:var(--shadow-sm);margin-top:2rem}
 .pay-qr{background:#fff;border:2px solid var(--line);border-radius:18px;padding:.8rem;text-align:center}
