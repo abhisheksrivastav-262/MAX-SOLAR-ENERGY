@@ -41,17 +41,30 @@
     });
   });
 
-  // Category pills: reliable smooth scroll for every webview (with sticky-header offset)
-  document.querySelectorAll('.pcats a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',(e)=>{
-      const t=document.querySelector(a.getAttribute('href'));
-      if(t){
-        e.preventDefault();
-        t.scrollIntoView({behavior:'smooth',block:'start'});
-        try{ history.replaceState(null,'',a.getAttribute('href')); }catch(_){}
+  // Products page: category pills act as filter tabs (tap-proof on mobile) + align to top
+  (function(){
+    const bar=document.querySelector('.pcats');
+    if(!bar) return;
+    const pills=[...bar.querySelectorAll('a[href^="#"]')];
+    const secs=[...document.querySelectorAll('section.section[id]')];
+    if(!pills.length||!secs.length) return;
+    const topOfList=()=>bar.getBoundingClientRect().top+window.scrollY-80;
+    const apply=(hash)=>{
+      if(hash==='#all'||!document.querySelector(hash)){
+        secs.forEach(s=>{ s.style.display=''; });
+        pills.forEach(p=>p.classList.toggle('on',p.getAttribute('href')==='#all'));
+      }else{
+        pills.forEach(p=>p.classList.toggle('on',p.getAttribute('href')===hash));
+        secs.forEach(s=>{ s.style.display=('#'+s.id===hash)?'':'none'; });
+        const t=document.querySelector(hash);
+        if(t){ t.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')); }
       }
-    });
-  });
+      window.scrollTo({top:topOfList(),behavior:'auto'});
+      try{ history.replaceState(null,'',hash==='#all'?location.pathname:hash); }catch(_){}
+    };
+    pills.forEach(a=>a.addEventListener('click',(e)=>{ e.preventDefault(); apply(a.getAttribute('href')); }));
+    if(location.hash&&bar.querySelector('a[href="'+location.hash+'"]')){ apply(location.hash); }
+  })();
 
   const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
 })();

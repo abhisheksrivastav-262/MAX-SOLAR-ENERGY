@@ -196,6 +196,10 @@ footer a:hover{color:#5eead4}
 .pcats a{font-size:.82rem;font-weight:800;padding:.6rem 1.1rem;border-radius:100px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;transition:.25s}
 .pcats a:hover{background:#f59e0b;border-color:#f59e0b;color:#231600}
 .pcats a:active{transform:scale(.96)}
+.pcats a.on{background:linear-gradient(135deg,#fbbf24,#f59e0b);border-color:#f59e0b;color:#231600}
+/* combo section: 2-col on desktop, 1-col on mobile */
+#combo .prod-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:620px){#combo .prod-grid{grid-template-columns:1fr}}
 /* ---- Brand logo: header, mobile menu, footer ---- */
 .brand-logo{width:50px;height:50px;object-fit:contain;border-radius:14px;background:#fff;box-shadow:0 8px 24px rgba(14,163,113,.3);flex:0 0 auto}
 .mm-brand{display:flex;align-items:center;gap:.6rem}
